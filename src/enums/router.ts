@@ -1,0 +1,17 @@
+export enum AppRoute {
+  Main = "/",
+  BookPage = "/book/:bookId",
+  Basket = "/basket",
+  CheckOut = "/check_out",
+  Login = "/sign_in",
+  Reg = "/sing_up",
+  Favorites = "/favorites",
+  Settings = "/settings",
+  Posts = "/posts",
+  PostsAdd = "/posts/add",
+  Register = "/sign_up",
+  ForgotPassword = "/forgot_password",
+  ResetPassword = "/reset_password",
+  Activate = "/activate",
+  NotFound = "/404",
+}

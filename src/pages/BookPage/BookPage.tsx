@@ -1,6 +1,18 @@
 import * as React from "react";
-
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { useAppSelector } from "../../hooks/redux-hooks";
+import { FavoriteIcon } from "../../components/PostCard/FavoriteIcon";
+import { FetchBookMain } from "../../api/fetchBook";
+import { ButtonToMainPage } from "../../components/ButtonToMainPage/ButtonToMainPage";
+import { SuccessfullIcon } from "./SuccessfullIcon";
+import { Button } from "../../components/Button/Button";
+import { addFavoriteItem } from "../../store/slices/favouritesSlice";
+import { addItem } from "../../store/slices/cartSlice";
+import { AppRoute } from "../../enums/router";
+import { AddToFavoriteIcon } from "../../components/PostCard/AddToFavorite";
+import { bookTypePage } from "../../types/bookTypePage";
 
 import {
   Wrapper,
@@ -28,29 +40,20 @@ import {
   Error,
 } from "./BookPage.styled";
 
-import { FavoriteIcon } from "../../components/Posts/PostCard/FavoriteIcon";
-import { FetchBookMain } from "../../api/fetchBook";
-import { ButtonToMainPage } from "../../components/ButtonToMainPage/ButtonToMainPage";
-import { SuccessfullIcon } from "./SuccessfullIcon";
-import { Button } from "../../components/Button/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../store/slices/cartSlice";
-import { AppRoute } from "../../enums/router";
-import { AddToFavoriteIcon } from "../../components/Posts/PostCard/AddToFavorite";
-import { addFavoriteItem } from "../../store/slices/favouritesSlice";
-
-export function BookPage() {
+const BookPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.favorites);
 
-  const [email, setEmail] = React.useState("");
-  const [emailDirty, setEmailDirty] = React.useState(false);
-  const [emailError, setEmailError] = React.useState(
+  const { items } = useAppSelector((state) => state.favorites);
+
+  const [email, setEmail] = React.useState<string>("");
+  const [emailDirty, setEmailDirty] = React.useState<boolean>(false);
+  const [emailError, setEmailError] = React.useState<string | null>(
     "The email cannot be empty"
   );
-  const [formValid, setFormValid] = React.useState(false);
-  const [subscription, setSubscription] = React.useState(false);
-  const [isAddedItem, setIsAddedItem] = React.useState(false);
+  const [formValid, setFormValid] = React.useState<boolean>(false);
+  const [subscription, setSubscription] = React.useState<boolean>(false);
+  const [isAddedItem, setIsAddedItem] = React.useState<boolean>(false);
+  let card: any = FetchBookMain();
 
   React.useEffect(() => {
     if (emailError) {
@@ -59,13 +62,12 @@ export function BookPage() {
       setFormValid(true);
     }
   }, [emailError]);
-  let card = FetchBookMain();
 
   const onClickFavorite = () => {
     dispatch(addFavoriteItem(card));
   };
 
-  const emailHandler = (e: any) => {
+  const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     const re =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -76,7 +78,7 @@ export function BookPage() {
       setEmailError("");
     }
   };
-  const blurHandler = (e: any) => {
+  const blurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case "email":
         setEmailDirty(true);
@@ -141,13 +143,21 @@ export function BookPage() {
             </PathTwo>
           </WrapperInfoRight>
           {isAddedItem ? (
-            <Link to={AppRoute.Basket}>
-              <Button title="view the shopping cart &#8594;" />
+            <Link to={AppRoute.Cart}>
+              <Button
+                title="view the shopping cart &#8594;"
+                onClickBtn={() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }}
+              />
             </Link>
           ) : (
             <Button
               title="add to cart"
-              onClickAdd={() => {
+              onClickBtn={() => {
                 dispatch(addItem(card));
                 setIsAddedItem(true);
               }}
@@ -157,7 +167,6 @@ export function BookPage() {
       </Wrapper>
       <Description>Description</Description>
       <Desc>{card.desc}</Desc>
-
       {subscription ? (
         <WrapperForm>
           <SuccessfullIcon />
@@ -188,7 +197,10 @@ export function BookPage() {
               </InputEmail>
               <BtbSubscibe
                 disabled={!formValid}
-                onClick={() => setSubscription(true)}
+                onClick={() => {
+                  setSubscription(true);
+                  setEmail("");
+                }}
               >
                 Subscribe
               </BtbSubscibe>
@@ -198,4 +210,6 @@ export function BookPage() {
       )}
     </>
   );
-}
+};
+
+export default BookPage;

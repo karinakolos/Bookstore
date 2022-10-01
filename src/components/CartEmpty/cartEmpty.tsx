@@ -1,11 +1,11 @@
-import React from "react";
-import { Wrapper, Title, MainText, Image } from "./cartEmpty.styled";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { AppRoute } from "../../enums/router";
 import emptyCart from "../../icons/emptyCart.png";
 
-export default function cartEmpty() {
+import { Wrapper, Title, MainText, Image } from "./cartEmpty.styled";
+
+const cartEmpty = () => {
   return (
     <Wrapper>
       <Title>Your shopping cart is empty</Title>
@@ -14,8 +14,10 @@ export default function cartEmpty() {
         <img src={emptyCart} alt="Empty cart" />
       </Image>
       <Link to={AppRoute.Main}>
-        <Button title="catalog" />
+        <Button title="catalog" onClickBtn={() => {}} />
       </Link>
     </Wrapper>
   );
-}
+};
+
+export default cartEmpty;

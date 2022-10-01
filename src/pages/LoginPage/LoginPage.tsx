@@ -1,14 +1,12 @@
 import * as React from "react";
 
 import { ButtonNav } from "../../components/ButtonNav/ButtonNav";
-
 import { SideNavLink } from "./LoginPage.styled";
 import { AppRoute } from "./../../enums/router";
-
 import { Wrapper, WrapperNav } from "./LoginPage.styled";
-import { Login } from "../../components/Login/Login";
+import Login from "../../components/Login/Login";
 
-export function LoginPage() {
+const LoginPage: React.FC = () => {
   return (
     <div>
       <Wrapper>
@@ -20,9 +18,9 @@ export function LoginPage() {
             <ButtonNav title="sign up" />
           </SideNavLink>
         </WrapperNav>
-
         <Login />
       </Wrapper>
     </div>
   );
-}
+};
+export default LoginPage;

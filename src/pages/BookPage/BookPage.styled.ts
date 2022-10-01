@@ -1,4 +1,3 @@
-import { Button } from "./../../components/ButtonNav/ButtonNav.styled";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
@@ -15,11 +14,13 @@ export const Title = styled.div`
   padding: 0 0 2.5rem;
   color: #313037;
 `;
+
 export const WrapperPhoto = styled.div`
   position: relative;
   flex-basis: 40%;
   text-align: center;
 `;
+
 export const ButtonLike = styled.button`
   position: absolute;
   top: 0;
@@ -56,18 +57,21 @@ export const WrapperInfoRight = styled.div`
     padding: 0.5rem 0;
   }
 `;
+
 export const Price = styled.div`
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.75rem;
   color: #313037;
 `;
+
 export const Pating = styled.div`
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.75rem;
   color: #313037;
 `;
+
 export const PathOne = styled.div`
   font-weight: 400;
   font-size: 1rem;
@@ -75,6 +79,7 @@ export const PathOne = styled.div`
   padding-right: 3rem;
   color: #a8a8a8;
 `;
+
 export const PathTwo = styled.div`
   font-weight: 400;
   font-size: 1rem;
@@ -105,12 +110,14 @@ export const Description = styled.div`
     margin: 1rem auto;
   }
 `;
+
 export const Desc = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 2rem;
   color: #313037;
 `;
+
 export const WrapperForm = styled.div`
   margin: 5rem 1rem 4rem;
   padding: 3rem 2rem;
@@ -123,11 +130,13 @@ export const WrapperForm = styled.div`
     height: 4rem;
   }
 `;
+
 export const WrapperFormSubscribe = styled.div`
   margin: 5rem 1rem 4rem;
   padding: 3rem 2rem;
   background: #ccc4bc;
 `;
+
 export const TitleForm = styled.div`
   font-weight: 500;
   font-size: 2.2rem;
@@ -142,6 +151,7 @@ export const TitleSubscribe = styled.div`
   line-height: 3.75rem;
   color: #313037;
 `;
+
 export const SubtitleSubscribe = styled.div`
   font-weight: 400;
   font-size: 1.125rem;
@@ -149,15 +159,18 @@ export const SubtitleSubscribe = styled.div`
   line-height: 1.75rem;
   color: #313037;
 `;
+
 export const Form = styled.div`
   position: relative;
   padding: 1.7rem 0;
   display: flex;
   flex-direction: column;
 `;
+
 export const WrapperInput = styled.div`
   display: flex;
 `;
+
 export const InputEmail = styled.div`
   flex-basis: 80%;
   display: flex;
@@ -169,9 +182,9 @@ export const InputEmail = styled.div`
     border: 1px solid #e7e7e7;
   }
 `;
+
 export const BtbSubscibe = styled.button`
   flex-basis: 20%;
-
   text-align: center;
   line-height: 3rem;
   background: #313037;
@@ -209,6 +222,7 @@ export const BtbSubscibeSuccessfull = styled.button`
     background: #781a2b;
   }
 `;
+
 export const Error = styled.div`
   color: red;
   position: absolute;

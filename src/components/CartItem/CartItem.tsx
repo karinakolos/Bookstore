@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/redux-hooks";
 import { addItem, minusItem, removeItem } from "../../store/slices/cartSlice";
 import {
   Wrapper,
@@ -16,19 +16,34 @@ import {
   DeleteItem,
 } from "./CartItem.styled";
 
-export default function CartItem({
+type ItemProps = {
+  isbn13: string;
+  image?: string;
+  title?: string;
+  subtitle?: string;
+  priceToRedux: number;
+  count: number;
+};
+
+const CartItem: React.FC<ItemProps> = ({
   isbn13,
   title,
   subtitle,
   count,
   priceToRedux,
   image,
-}) {
-  const dispatch = useDispatch();
+}) => {
+  const dispatch = useAppDispatch();
+
   const onClickPlus = () => {
     dispatch(
       addItem({
         isbn13,
+        title,
+        subtitle,
+        count,
+        priceToRedux,
+        image,
       })
     );
   };
@@ -38,11 +53,12 @@ export default function CartItem({
   const onClickRemove = () => {
     dispatch(removeItem(isbn13));
   };
+
   return (
     <Wrapper>
       <WrapperCartItem>
         <WrapperImageItem>
-          <img src={image} alt="Item" />
+          <img src={image} alt="Book photo" />
         </WrapperImageItem>
         <WrapperDescItem>
           <Title>{title}</Title>
@@ -50,14 +66,14 @@ export default function CartItem({
           <Quantity>
             <ButtonDeleteItem onClick={onClickMinus}>&#8722;</ButtonDeleteItem>
             <Value>{count}</Value>
-
             <ButtonAddItem onClick={onClickPlus}>&#43;</ButtonAddItem>
           </Quantity>
         </WrapperDescItem>
-
         <Price>${Math.floor(priceToRedux * count * 100) / 100}</Price>
         <DeleteItem onClick={onClickRemove}>&#215;</DeleteItem>
       </WrapperCartItem>
     </Wrapper>
   );
-}
+};
+
+export default CartItem;

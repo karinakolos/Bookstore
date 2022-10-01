@@ -1,13 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+export type FavoriteItem = {
+  isbn13: string;
+  image?: string;
+  title?: string;
+  price: string;
+};
+interface FavoriteSliceState {
+  items: FavoriteItem[];
+}
+
+const initialState: FavoriteSliceState = {
   items: [],
 };
+
 const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFavoriteItem(state, action) {
+    addFavoriteItem(state, action: PayloadAction<FavoriteItem>) {
       const findItem = state.items.find(
         (obj) => obj.isbn13 == action.payload.isbn13
       );

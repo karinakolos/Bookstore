@@ -31,7 +31,7 @@ export const WrapperForm = styled.div`
 `;
 export const WrapperItem = styled.div`
   flex-basis: 40%;
-  margin: 7rem 1rem;
+  margin: auto 1rem;
   padding: 2rem;
   border: 1px solid #23282b;
 `;
@@ -99,4 +99,31 @@ export const Item = styled.div`
   font-size: 1.1rem;
   color: #313037;
   line-height: 1.6rem;
+`;
+export const Error = styled.div`
+  font-size: 1rem;
+  color: red;
+  line-height: 1.3rem;
+  padding: 1rem 0;
+`;
+
+export const Cheque = styled.div`
+  width: 50%;
+  margin: 1rem auto;
+  padding: 2rem;
+  background: #fff;
+`;
+export const Alert = styled.div`
+  font-size: 1rem;
+  color: #313037;
+  padding: 2rem 0;
+  :after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #23282b;
+    opacity: 0.4;
+    width: 100%;
+    margin: 2rem auto 0;
+  }
 `;

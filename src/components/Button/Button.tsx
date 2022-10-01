@@ -1,16 +1,15 @@
-import * as React from "react";
 import { WrapperButton, ButtonLog } from "./Button.styled";
 
 export function Button({
   title,
-  onClickAdd,
+  onClickBtn,
 }: {
   title: string;
-  onClickAdd: any;
+  onClickBtn: () => void;
 }) {
   return (
     <WrapperButton>
-      <ButtonLog onClick={onClickAdd}>{title}</ButtonLog>
+      <ButtonLog onClick={onClickBtn}>{title}</ButtonLog>
     </WrapperButton>
   );
 }

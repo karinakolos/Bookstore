@@ -1,6 +1,17 @@
 import * as React from "react";
-import { bookType } from "../../../types/bookType";
-import { BasketIcon } from "./BasketIcon";
+
+import {
+  addFavoriteItem,
+  FavoriteItem,
+} from "../../store/slices/favouritesSlice";
+import { addItem, CartItem } from "../../store/slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+
+import { CartIcon } from "./CartIcon";
+import { FavoriteIcon } from "./FavoriteIcon";
+import { InCartIcon } from "./InCartIcon";
+import { AddToFavoriteIcon } from "./AddToFavorite";
+
 import {
   PostWrapper,
   PostImage,
@@ -13,55 +24,53 @@ import {
   WrapperButton,
   StyledLink,
 } from "./PostCard.styled";
-import { FavoriteIcon } from "./FavoriteIcon";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../../store/slices/cartSlice";
-import { InCartIcon } from "./InCartIcon";
-import { addFavoriteItem } from "../../../store/slices/favouritesSlice";
-import { AddToFavoriteIcon } from "./AddToFavorite";
 
-export function PostCard({
+type PostCardpRpops = {
+  isbn13: string;
+  title?: string;
+  subtitle?: string;
+  price: string;
+  image?: string;
+};
+
+const PostCard: React.FC<PostCardpRpops> = ({
   isbn13,
   title,
   subtitle,
   price,
   image,
-}: {
-  isbn13: string;
-  title: string;
-  subtitle: string;
-  price: string;
-  image: string;
-}) {
-  const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.favorites);
+}) => {
+  const dispatch = useAppDispatch();
 
-  const [isAddedItem, setIsAddedItem] = React.useState(false);
+  const { items } = useAppSelector((state) => state.favorites);
 
-  let priceToRedux = Number(price.slice(1));
+  const [isAddedItem, setIsAddedItem] = React.useState<boolean>(false);
+
+  let priceToRedux: number = Number(price.slice(1));
+
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       isbn13,
       image,
       title,
       subtitle,
       priceToRedux,
+      count: 0,
     };
     dispatch(addItem(item));
     setIsAddedItem(true);
   };
   const onClickFavorite = () => {
-    const item = {
+    const item: FavoriteItem = {
       isbn13,
-      image,
       title,
-      subtitle,
+      image,
       price,
     };
     dispatch(addFavoriteItem(item));
   };
 
-  function PriceFree(pr: any) {
+  function PriceFree(pr: string) {
     if (pr == "$0.00") {
       return "Free";
     } else return pr;
@@ -84,7 +93,6 @@ export function PostCard({
           <PostAuthor>{subtitle}</PostAuthor>
         </WrapperMain>
       </StyledLink>
-
       <WrapperInfo>
         <Price>{PriceFree(price)}</Price>
         <WrapperButton>
@@ -99,11 +107,13 @@ export function PostCard({
             <InCartIcon />
           ) : (
             <ButtonBasket onClick={onClickAdd}>
-              <BasketIcon />
+              <CartIcon />
             </ButtonBasket>
           )}
         </WrapperButton>
       </WrapperInfo>
     </PostWrapper>
   );
-}
+};
+
+export default PostCard;

@@ -1,10 +1,14 @@
 import * as React from "react";
 import qs from "qs";
 import ReactPaginate from "react-paginate";
-import { setCurrentPage } from "../../store/slices/paginationSlice";
+import { useNavigate } from "react-router-dom";
 
-import { PostCard } from "../../components/Posts/PostCard/PostCard";
-import { fetchBooks } from "../../store/slices/booksSlice";
+import { setCurrentPage } from "../../store/slices/paginationSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import PostCard from "../../components/PostCard/PostCard";
+import { Book, fetchBooks } from "../../store/slices/booksSlice";
+import { Skeleton } from "../../components/PostCard/Skeleton";
+import { Title } from "../../components/Title/Title";
 import {
   WrapperMainContent,
   Wrapper,
@@ -12,33 +16,13 @@ import {
   Paginate,
   TextError,
 } from "./MainPage.styled";
-import { Skeleton } from "../../components/Posts/PostCard/Skeleton";
-import { SearchContext } from "../../App";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Title } from "../../components/Title/Title";
 
-export function MainPage() {
+const MainPage: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { items, status } = useSelector((state) => state.books);
-  const { currentPage } = useSelector((state) => state.currentPage);
-
-  const { searchValue } = React.useContext(SearchContext);
-
-  // const [isLoading, setIsLoading] = React.useState(true);
-  // const [books, setBooks] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   console.log("cur page", currentPage);
-  //   fetchBooks({ searchValue, currentPage }).then((data) => {
-  //     setBooks(data);
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 3000);
-  //   });
-  // }, [searchValue, currentPage]);
+  const dispatch = useAppDispatch();
+  const { items, status } = useAppSelector((state) => state.books);
+  const { currentPage } = useAppSelector((state) => state.currentPage);
+  const { searchValue } = useAppSelector((state) => state.search);
 
   const getBooks = async () => {
     const search = searchValue ? `${searchValue}` : "mongodb";
@@ -51,18 +35,14 @@ export function MainPage() {
   };
 
   React.useEffect(() => {
-    if (!(currentPage == "1")) {
+    if (!(currentPage == 1)) {
       const queryString = qs.stringify({ page: currentPage });
       navigate(`?${queryString}`);
     }
   }, [currentPage]);
 
-  // if (window.location.search) {
-  //   getBooks();
-  // }
   React.useEffect(() => {
     getBooks();
-    // console.log(items.books);
   }, [searchValue, currentPage]);
 
   return (
@@ -80,7 +60,7 @@ export function MainPage() {
           <WrapperMainContent>
             <Title title="New Releases Books" />
             <PostsContainer>
-              {status == "error" ? (
+              {status !== "loading" && status !== "success" ? (
                 <TextError>
                   Unfortunately, it was not possible to get a list of books. Try
                   again later.
@@ -88,15 +68,11 @@ export function MainPage() {
               ) : status == "loading" ? (
                 [...new Array(15)].map((_, index) => <Skeleton key={index} />)
               ) : (
-                items.books.map((el: any) => {
+                // @ts-ignore
+                items.books.map((el: Book) => {
                   return <PostCard key={el.isbn13} {...el} />;
                 })
               )}
-              {/* {isLoading
-            ? [...new Array(15)].map((_, index) => <Skeleton key={index} />)
-            : books.map((el: any) => {
-                return <PostCard key={el.isbn13} {...el} />;
-              })} */}
             </PostsContainer>
           </WrapperMainContent>
           <Paginate>
@@ -106,7 +82,6 @@ export function MainPage() {
               previousLabel="<"
               onPageChange={(event) => {
                 dispatch(setCurrentPage(event.selected + 1));
-
                 window.scrollTo({
                   top: 0,
                   behavior: "smooth",
@@ -121,4 +96,5 @@ export function MainPage() {
       )}
     </Wrapper>
   );
-}
+};
+export default MainPage;

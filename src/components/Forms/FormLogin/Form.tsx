@@ -15,15 +15,17 @@ interface FormProps {
 }
 
 const Form: FC<FormProps> = ({ title, handleClick }) => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [emailDirty, setEmailDirty] = useState(false);
-  const [passwordDirty, setPasswordDirty] = useState(false);
-  const [emailError, setEmailError] = useState("The email cannot be empty");
-  const [passwordError, setPasswordError] = useState(
-    "The password cannot be empty"
+  const [email, setEmail] = useState<string>("");
+  const [pass, setPass] = useState<string>("");
+  const [emailDirty, setEmailDirty] = useState<boolean>(false);
+  const [passwordDirty, setPasswordDirty] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<string>(
+    "The email can't be empty"
   );
-  const [formValid, setFormValid] = useState(false);
+  const [passwordError, setPasswordError] = useState<string>(
+    "The password can't be empty"
+  );
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   React.useEffect(() => {
     if (emailError || passwordError) {
@@ -33,7 +35,7 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
     }
   }, [emailError, passwordError]);
 
-  const emailHandler = (e: any) => {
+  const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     const re =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -44,18 +46,18 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
       setEmailError("");
     }
   };
-  const passwordHandler = (e: any) => {
+  const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPass(e.target.value);
     if (e.target.value.length < 7) {
       setPasswordError("The password must be longer than 6 characters");
       if (!e.target.value) {
-        setPasswordError("The email cannot be empty");
+        setPasswordError("The email can't be empty");
       }
     } else {
       setPasswordError("");
     }
   };
-  const blurHandler = (e: any) => {
+  const blurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case "email":
         setEmailDirty(true);
@@ -94,10 +96,8 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
             placeholder="Password"
           />
         </WrapperInput>
-
         {passwordDirty && passwordError && <Error>{passwordError}</Error>}
       </WrapperPassword>
-
       <Button
         disabled={!formValid}
         type="submit"

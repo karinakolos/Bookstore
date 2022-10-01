@@ -1,6 +1,8 @@
 import * as React from "react";
+
 import { WrapperFooter, Items, Item } from "./Footer.styled";
-export function Foooter() {
+
+const Foooter: React.FC = () => {
   return (
     <WrapperFooter>
       <Items>
@@ -9,4 +11,6 @@ export function Foooter() {
       </Items>
     </WrapperFooter>
   );
-}
+};
+
+export default Foooter;

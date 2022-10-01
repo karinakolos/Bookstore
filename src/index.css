@@ -2,7 +2,6 @@
   --bg-dark: #222124;
   --bg-light: #e6dacc;
 }
-
 body {
   height: 100vh;
   margin: 0;
@@ -29,11 +28,4 @@ input {
 }
 #root {
   height: 100%;
-}
-.layout {
-  background: var(--bg-light);
-  color: #313037;
-}
-.layout.dark {
-  background: var(--bg-dark);
 }

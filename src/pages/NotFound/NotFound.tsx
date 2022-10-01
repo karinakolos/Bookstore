@@ -1,11 +1,13 @@
 import React from "react";
-import { Wrapper } from "./NotFound.styled";
 import NotFoundBlock from "../../components/NotFoundBlock/NotFoundBlock";
+import { Wrapper } from "./NotFound.styled";
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
   return (
     <Wrapper>
       <NotFoundBlock />
     </Wrapper>
   );
-}
+};
+
+export default NotFound;

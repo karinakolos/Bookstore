@@ -4,6 +4,7 @@ import currentPage from "./slices/paginationSlice";
 import cart from "./slices/cartSlice";
 import books from "./slices/booksSlice";
 import favorites from "./slices/favouritesSlice";
+import search from "./slices/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     cart,
     books,
     favorites,
+    search,
   },
 });
 

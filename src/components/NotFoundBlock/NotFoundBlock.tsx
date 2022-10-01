@@ -1,9 +1,9 @@
 import React from "react";
-import { Wrapper, Title, Image, ButtonToHome } from "./NotFoundBlock.styled";
 import { Link } from "react-router-dom";
 import { AppRoute } from "../../enums/router";
+import { Wrapper, Title, Image, ButtonToHome } from "./NotFoundBlock.styled";
 
-export default function NotFoundBlock() {
+const NotFoundBlock: React.FC = () => {
   return (
     <Wrapper>
       <Title>Not Found</Title>
@@ -57,4 +57,6 @@ export default function NotFoundBlock() {
       </Link>
     </Wrapper>
   );
-}
+};
+
+export default NotFoundBlock;

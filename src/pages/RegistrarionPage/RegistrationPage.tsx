@@ -2,11 +2,10 @@ import * as React from "react";
 import { ButtonNav } from "../../components/ButtonNav/ButtonNav";
 import { SideNavLink } from "./RegistrationPage.styled";
 import { AppRoute } from "./../../enums/router";
-
 import { Wrapper, WrapperNav } from "./RegistrationPage.styled";
-import { SignUp } from "../../components/SignUp/SignUp";
+import SignUp from "../../components/SignUp/SignUp";
 
-export function RegistrationPage() {
+const RegistrationPage: React.FC = () => {
   return (
     <div>
       <Wrapper>
@@ -22,4 +21,5 @@ export function RegistrationPage() {
       </Wrapper>
     </div>
   );
-}
+};
+export default RegistrationPage;

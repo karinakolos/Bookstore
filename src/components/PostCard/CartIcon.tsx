@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BasketIcon = () => {
+export const CartIcon = () => {
   return (
     <svg
       enableBackground="new 0 0 40 40"

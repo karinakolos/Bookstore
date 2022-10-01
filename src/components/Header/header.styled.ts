@@ -30,6 +30,7 @@ export const LogoWrapper = styled.div``;
 export const SearchBar = styled.div`
   position: relative;
   flex-basis: 30%;
+  height: 2.8rem;
   input {
     width: 100%;
     background: none;
@@ -37,7 +38,7 @@ export const SearchBar = styled.div`
     font-size: 1rem;
     line-height: 1.5rem;
     color: #23282b;
-    padding: 0.875rem 0 0.625rem 1.25rem;
+    padding: 0.625rem 1.25rem;
     opacity: 0.5;
     :focus {
       opacity: 1;
@@ -70,28 +71,31 @@ export const SideNavLink = styled(NavLink)`
     }
   }
 `;
-export const ButtonLogOut = styled.div`
+export const ButtonSettings = styled.div`
   font-size: 1rem;
   font-weight: 500;
   display: flex;
   align-items: center;
-
+  vertical-align: center;
   padding: 0.1rem 0.5rem;
   cursor: pointer;
+  a {
+    color: #313037;
+    transition: all 0.3s ease-in;
+    :hover {
+      color: #781a2b;
+    }
+  }
   svg {
     width: 1.5rem;
     height: 1.5rem;
     margin-left: 0.5rem;
-
-    &:hover {
-      stroke: #781a2b;
-    }
-    &:active path {
-      stroke: #781a2b;
-    }
   }
-  :hover {
+  :hover svg {
     color: #781a2b;
+    path {
+      fill: #781a2b;
+    }
   }
 `;
 export const Count = styled.span`

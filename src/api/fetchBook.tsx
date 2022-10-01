@@ -1,14 +1,11 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { bookType } from "../types/bookType";
-import { bookTypePage } from "../types/bookTypePage";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { bookTypePage } from "../types/bookTypePage";
 
 export function FetchBookMain() {
   const [card, setCard] = React.useState<bookTypePage | null>();
   let params = useParams();
-
   React.useEffect(() => {
     async function fetchBook() {
       try {
@@ -17,7 +14,9 @@ export function FetchBookMain() {
         );
         data.priceToRedux = Number(data.price.slice(1));
         setCard(data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchBook();
   }, []);

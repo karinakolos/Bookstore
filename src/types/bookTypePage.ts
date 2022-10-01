@@ -7,7 +7,8 @@ export interface bookTypePage {
   isbn10: string;
   isbn13: string;
   pages: string;
-  price: string | number;
+  price: string;
+  priceToRedux: number;
   year: string;
   rating: string;
   desc: string;

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 
 export const WrapperMainContent = styled.div``;
 export const Wrapper = styled.div``;
@@ -35,7 +34,6 @@ export const Paginate = styled.div`
       }
     }
   }
-
   .selected {
     a {
       background: #781a2b;

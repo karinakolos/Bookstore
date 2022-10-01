@@ -1,6 +1,14 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/use-auth";
+
+import CartEmpty from "../../components/CartEmpty/cartEmpty";
+import { useAppSelector } from "../../hooks/redux-hooks";
+import { Button } from "../../components/Button/Button";
+import CartItem from "../../components/CartItem/CartItem";
+import { AppRoute } from "../../enums/router";
+import { Title } from "../../components/Title/Title";
+
 import {
   Wrapper,
   WrapperButton,
@@ -13,18 +21,9 @@ import {
   FinalSumm,
   Value,
 } from "./CartPage.styled";
-import { ButtonToMainPage } from "../../components/ButtonToMainPage/ButtonToMainPage";
-import CartEmpty from "../../components/CartEmpty/cartEmpty";
-import { useAppDispatch } from "../../hooks/redux-hooks";
-import { Button } from "../../components/Button/Button";
-import CartItem from "../../components/CartItem/CartItem";
-import { useSelector } from "react-redux";
-import { AppRoute } from "../../enums/router";
-import { Title } from "../../components/Title/Title";
 
-export function CartPage() {
-  const dispatch = useAppDispatch();
-  const { items, totalPrice } = useSelector((state) => state.cart);
+const CartPage: React.FC = () => {
+  const { items, totalPrice } = useAppSelector((state) => state.cart);
   const { isAuth, email } = useAuth();
   const vat = Math.floor(totalPrice * 0.18 * 100) / 100;
 
@@ -34,7 +33,6 @@ export function CartPage() {
   return (
     <Wrapper>
       <>
-        <ButtonToMainPage />
         <Title title="Your cart" />
       </>
       {items.map((item) => (
@@ -57,7 +55,7 @@ export function CartPage() {
           {isAuth ? (
             <Link to={AppRoute.CheckOut}>
               <WrapperButton>
-                <Button title="place an order" onClickAdd={null} />
+                <Button title="Proceed to checkout" onClickBtn={() => {}} />
               </WrapperButton>
             </Link>
           ) : (
@@ -71,4 +69,6 @@ export function CartPage() {
       </TotalSum>
     </Wrapper>
   );
-}
+};
+
+export default CartPage;

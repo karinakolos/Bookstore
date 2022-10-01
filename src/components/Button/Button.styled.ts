@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const WrapperButton = styled.div`
   display: block;
 `;
+
 export const ButtonLog = styled.div`
   text-align: center;
   background: #313037;

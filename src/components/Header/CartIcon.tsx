@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BasketIcon = () => {
+export const CartIcon = () => {
   return (
     <svg
       width="20"

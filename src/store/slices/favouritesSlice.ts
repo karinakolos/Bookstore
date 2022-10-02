@@ -1,3 +1,4 @@
+import { getFavoriteFromLS } from "./../../utils/getFavoriteFromLS";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type FavoriteItem = {
@@ -12,7 +13,7 @@ interface FavoriteSliceState {
 }
 
 const initialState: FavoriteSliceState = {
-  items: [],
+  items: getFavoriteFromLS(),
 };
 
 const favoritesSlice = createSlice({

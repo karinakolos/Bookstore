@@ -27,15 +27,25 @@ import {
 export function Header() {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector((state) => state.cart);
+  const favorites = useAppSelector((state) => state.favorites);
   const { isAuth } = useAuth();
   const { pathname } = useLocation();
   const [value, setValue] = React.useState<string>("");
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const isMounted = React.useRef(false);
 
   const totalCount = items.reduce(
     (sum: number, item: any) => sum + item.count,
     0
   );
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      localStorage.setItem("cart", JSON.stringify(items));
+      localStorage.setItem("fav", JSON.stringify(favorites.items));
+    }
+    isMounted.current = true;
+  }, [items, favorites.items]);
 
   const updateSearchValue = React.useCallback(
     debounce((str: string) => {

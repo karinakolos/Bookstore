@@ -21,7 +21,9 @@ export const WrapperCartItem = styled.div`
 `;
 
 export const WrapperImageItem = styled.div`
-  flex-basis: 30%;
+  flex-basis: 20%;
+  width: 15rem;
+  height: 15rem;
   margin: auto;
 
   img {
@@ -40,9 +42,9 @@ export const WrapperImageItem = styled.div`
 `;
 
 export const WrapperDescItem = styled.div`
-  margin: 0 2rem;
+  margin: 2rem;
   flex-basis: 50%;
-  padding: 1rem 0;
+
   @media (max-width: 573px) {
     flex-basis: 40%;
     margin: 0 0.5rem;

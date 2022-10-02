@@ -79,10 +79,16 @@ export const Price = styled.div`
 `;
 
 export const Pating = styled.div`
+  display: flex;
+  align-items: center;
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.75rem;
   color: var(--main);
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
 `;
 
 export const PathOne = styled.div`

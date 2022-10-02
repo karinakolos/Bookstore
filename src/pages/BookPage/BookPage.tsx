@@ -39,6 +39,7 @@ import {
   WrapperInput,
   Error,
 } from "./BookPage.styled";
+import { RatingIcon } from "./RatingIcon";
 
 const BookPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -86,6 +87,44 @@ const BookPage: React.FC = () => {
     }
   };
 
+  function rating() {
+    if (card.rating == "") {
+      return null;
+    }
+    if (card.rating == "1") {
+      return <RatingIcon />;
+    }
+    if (card.rating == "2") {
+      return (
+        <>
+          <RatingIcon /> <RatingIcon />
+        </>
+      );
+    }
+    if (card.rating == "3") {
+      return (
+        <>
+          <RatingIcon /> <RatingIcon /> <RatingIcon />
+        </>
+      );
+    }
+    if (card.rating == "4") {
+      return (
+        <>
+          <RatingIcon /> <RatingIcon /> <RatingIcon /> <RatingIcon />
+        </>
+      );
+    }
+    if (card.rating == "5") {
+      return (
+        <>
+          <RatingIcon /> <RatingIcon /> <RatingIcon /> <RatingIcon />
+          <RatingIcon />
+        </>
+      );
+    }
+  }
+
   if (!card) {
     return (
       <div>
@@ -112,7 +151,7 @@ const BookPage: React.FC = () => {
         <WrapperInfo>
           <WrapperInfoRight>
             <Price>{card.price}</Price>
-            <Pating>{card.rating}</Pating>
+            <Pating>{rating()}</Pating>
           </WrapperInfoRight>
           <WrapperInfoRight>
             <PathOne>Authors:</PathOne>

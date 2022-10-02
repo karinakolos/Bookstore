@@ -64,6 +64,7 @@ const PostCard: React.FC<PostCardpRpops> = ({
     const item: FavoriteItem = {
       isbn13,
       title,
+      subtitle,
       image,
       price,
     };

@@ -8,7 +8,7 @@ export const InputLabel = styled.label`
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 1.5rem;
-  color: #313037;
+  color: var(--main);
 `;
 export const WrapperInput = styled.div`
   display: flex;
@@ -17,13 +17,13 @@ export const WrapperInput = styled.div`
     width: 100% !important;
     height: 2.5rem;
     padding: 0 1rem;
-    border: 1px solid #e7e7e7;
+    border: 1px solid var(--border-input);
     outline: none;
   }
 `;
 export const Button = styled.button`
   text-align: center;
-  background: #313037;
+  background: var(--main);
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 1.2rem;
@@ -31,11 +31,17 @@ export const Button = styled.button`
   text-transform: uppercase;
   padding: 1rem;
   margin-top: 0.5rem;
-  color: #ffffff;
+  color: var(--white);
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {
-    background: #781a2b;
+    background: var(--vinous);
+  }
+  :active {
+    background: var(--vinous);
+  }
+  :focus {
+    background: var(--vinous);
   }
 `;
 export const Error = styled.div`

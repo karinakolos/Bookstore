@@ -6,5 +6,5 @@ export const Text = styled.div`
   text-transform: uppercase;
   line-height: 2.2rem;
   padding: 0 0 2.5rem;
-  color: #313037;
+  color: var(--main);
 `;

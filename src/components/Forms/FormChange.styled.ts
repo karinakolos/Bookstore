@@ -5,12 +5,22 @@ export const WrapperForm = styled.div`
   flex-direction: column;
   margin: 2rem auto;
   max-width: 50%;
+  @media (max-width: 850px) {
+    max-width: 60%;
+    margin: 0.5rem auto;
+  }
+  @media (max-width: 500px) {
+    max-width: 80%;
+  }
+  @media (max-width: 350px) {
+    max-width: 90%;
+  }
 `;
 export const InputLabel = styled.label`
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #313037;
+  color: var(--main);
 `;
 export const WrapperInput = styled.div`
   display: flex;
@@ -19,13 +29,13 @@ export const WrapperInput = styled.div`
     width: 100% !important;
     height: 2.5rem;
     padding: 0 1rem;
-    border: 1px solid #e7e7e7;
+    border: 1px solid var(--border-input);
     outline: none;
   }
 `;
 export const Button = styled.button`
   text-align: center;
-  background: #313037;
+  background: var(--main);
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.2rem;
@@ -33,12 +43,17 @@ export const Button = styled.button`
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.8rem;
-
-  color: #ffffff;
+  color: var(--white);
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {
-    background: #781a2b;
+    background: var(--vinous);
+  }
+  :active {
+    background: var(--vinous);
+  }
+  :focus {
+    background: var(--vinous);
   }
 `;
 export const Error = styled.div`
@@ -58,7 +73,7 @@ export const WrapperPassword = styled.div`
 `;
 export const Successfully = styled.div`
   font-size: 1.1rem;
-  color: #781a2b;
+  color: var(--vinous);
   line-height: 1.6rem;
   margin: 1rem auto;
 `;

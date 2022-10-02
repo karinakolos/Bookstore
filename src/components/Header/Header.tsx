@@ -27,7 +27,7 @@ import {
 export function Header() {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector((state) => state.cart);
-  const { isAuth, email } = useAuth();
+  const { isAuth } = useAuth();
   const { pathname } = useLocation();
   const [value, setValue] = React.useState<string>("");
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -58,38 +58,36 @@ export function Header() {
             <img src={logo} alt="Logo" />
           </Link>
         </LogoWrapper>
-        <SearchBar>
-          {pathname === "/" && (
-            <>
-              <input
-                ref={inputRef}
-                value={value}
-                onChange={onChangeInput}
-                placeholder="Search..."
-              />
-              {value && (
-                <svg
-                  onClick={() => {
-                    setValue("");
-                    dispatch(setSearchValue(""));
-                    dispatch(setCurrentPage(1));
-                    inputRef.current?.focus();
-                  }}
-                  width="16px"
-                  height="16px"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
-              )}
-            </>
-          )}
-        </SearchBar>
+        {pathname === "/" && (
+          <SearchBar>
+            <input
+              ref={inputRef}
+              value={value}
+              onChange={onChangeInput}
+              placeholder="Search..."
+            />
+            {value && (
+              <svg
+                onClick={() => {
+                  setValue("");
+                  dispatch(setSearchValue(""));
+                  dispatch(setCurrentPage(1));
+                  inputRef.current?.focus();
+                }}
+                width="16px"
+                height="16px"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            )}
+          </SearchBar>
+        )}
         <WrapperButtons>
           <SideNavLink to={AppRoute.Favorites}>
             <CartIcon />
@@ -101,7 +99,6 @@ export function Header() {
           {isAuth ? (
             <ButtonSettings>
               <SideNavLink to={AppRoute.Settings}>
-                {email}
                 <ProfileIcon />
               </SideNavLink>
             </ButtonSettings>

@@ -14,11 +14,19 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 2.7rem;
   line-height: 2.9rem;
+  @media (max-width: 560px) {
+    font-size: 1.7rem;
+    line-height: 1.9rem;
+  }
 `;
 export const MainText = styled.div`
   font-size: 1.1rem;
   line-height: 1.2rem;
   padding: 1rem 0 1.5rem;
+  @media (max-width: 560px) {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+  }
 `;
 export const Image = styled.div`
   max-width: 5rem;

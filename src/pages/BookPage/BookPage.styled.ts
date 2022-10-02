@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 1rem 0;
+  @media (max-width: 650px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const Title = styled.div`
@@ -12,13 +15,17 @@ export const Title = styled.div`
   text-transform: uppercase;
   line-height: 2.2rem;
   padding: 0 0 2.5rem;
-  color: #313037;
+  color: var(--main);
 `;
 
 export const WrapperPhoto = styled.div`
   position: relative;
   flex-basis: 40%;
   text-align: center;
+  @media (max-width: 650px) {
+    flex-basis: 100%;
+    margin: 0 1rem;
+  }
 `;
 
 export const ButtonLike = styled.button`
@@ -29,7 +36,6 @@ export const ButtonLike = styled.button`
   height: 3rem;
   border: none;
   padding: 0.6rem;
-  /* background: #313037; */
   background: #0000;
   cursor: pointer;
   svg {
@@ -39,12 +45,19 @@ export const ButtonLike = styled.button`
     transition: all 0.3s ease-in-out;
   }
   :hover svg {
-    fill: #781a2b;
+    fill: var(--vinous);
   }
 `;
 
 export const WrapperInfo = styled.div`
   flex-basis: 40%;
+  @media (max-width: 850px) {
+    flex-basis: 50%;
+  }
+  @media (max-width: 650px) {
+    flex-basis: 100%;
+    padding: 0 2rem;
+  }
 `;
 
 export const WrapperInfoRight = styled.div`
@@ -62,14 +75,14 @@ export const Price = styled.div`
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.75rem;
-  color: #313037;
+  color: var(--main);
 `;
 
 export const Pating = styled.div`
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.75rem;
-  color: #313037;
+  color: var(--main);
 `;
 
 export const PathOne = styled.div`
@@ -77,19 +90,19 @@ export const PathOne = styled.div`
   font-size: 1rem;
   line-height: 2rem;
   padding-right: 3rem;
-  color: #a8a8a8;
+  color: var(--light);
 `;
 
 export const PathTwo = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 2rem;
-  color: #313037;
+  color: var(--main);
   a {
-    color: #313037;
+    color: var(--main);
     transition: all 0.2s ease-in;
     :hover {
-      color: #781a2b;
+      color: var(--vinous);
     }
   }
 `;
@@ -99,12 +112,12 @@ export const Description = styled.div`
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 6rem 0 1rem;
-  color: #313037;
+  color: var(--main);
   :after {
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 1rem auto;
@@ -115,13 +128,13 @@ export const Desc = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 2rem;
-  color: #313037;
+  color: var(--main);
 `;
 
 export const WrapperForm = styled.div`
   margin: 5rem 1rem 4rem;
   padding: 3rem 2rem;
-  background: #ccc4bc;
+  background: var(--bg-form);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,19 +142,26 @@ export const WrapperForm = styled.div`
     width: 4rem;
     height: 4rem;
   }
+  @media (max-width: 650px) {
+    margin: 2rem 1rem 2rem;
+  }
 `;
 
 export const WrapperFormSubscribe = styled.div`
   margin: 5rem 1rem 4rem;
   padding: 3rem 2rem;
-  background: #ccc4bc;
+  background: var(--bg-form);
+  @media (max-width: 650px) {
+    margin: 2rem 0.5rem 2rem;
+    padding: 1rem 1rem;
+  }
 `;
 
 export const TitleForm = styled.div`
   font-weight: 500;
   font-size: 2.2rem;
   line-height: 4rem;
-  color: #313037;
+  color: var(--main);
 `;
 
 export const TitleSubscribe = styled.div`
@@ -149,7 +169,11 @@ export const TitleSubscribe = styled.div`
   text-transform: uppercase;
   font-size: 2.5rem;
   line-height: 3.75rem;
-  color: #313037;
+  color: var(--main);
+  @media (max-width: 650px) {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
 `;
 
 export const SubtitleSubscribe = styled.div`
@@ -157,7 +181,11 @@ export const SubtitleSubscribe = styled.div`
   font-size: 1.125rem;
   padding: 0.5rem 0 2rem;
   line-height: 1.75rem;
-  color: #313037;
+  color: var(--main);
+  @media (max-width: 650px) {
+    font-size: 1rem;
+    padding: 0.5rem 0 0;
+  }
 `;
 
 export const Form = styled.div`
@@ -179,7 +207,7 @@ export const InputEmail = styled.div`
     width: 100%;
     line-height: 3rem;
     padding-left: 1rem;
-    border: 1px solid #e7e7e7;
+    border: 1px solid var(--border-input);
   }
 `;
 
@@ -187,39 +215,43 @@ export const BtbSubscibe = styled.button`
   flex-basis: 20%;
   text-align: center;
   line-height: 3rem;
-  background: #313037;
+  background: var(--main);
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 1.2rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #ffffff;
-  border: 1px solid #313037;
+  color: var(--white);
+  border: 1px solid var(--main);
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {
-    background: #781a2b;
+    background: var(--vinous);
   }
   :disabled {
     background: #ccc;
     border-color: #ccc;
     cursor: not-allowed;
   }
+  @media (max-width: 650px) {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
 `;
 export const BtbSubscibeSuccessfull = styled.button`
-  background: #313037;
+  background: var(--manin);
   font-weight: 500;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #ffffff;
-  border: 1px solid #313037;
+  color: var(--white);
+  border: 1px solid var(--main);
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {
-    background: #781a2b;
+    background: var(--vinous);
   }
 `;
 

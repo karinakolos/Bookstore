@@ -6,7 +6,13 @@ export const Wrapper = styled.div``;
 export const PostsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 1.5rem;
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Paginate = styled.div`
@@ -28,17 +34,25 @@ export const Paginate = styled.div`
       cursor: pointer;
       transition: all 0.3s ease-in;
       &:hover {
-        background: #781a2b;
-        border: 1px solid #781a2b;
-        color: #fff;
+        background: var(--vinous);
+        border: 1px solid var(--vinous);
+        color: var(--white);
       }
     }
   }
   .selected {
     a {
-      background: #781a2b;
-      border: 1px solid #781a2b;
-      color: #fff;
+      background: var(--vinous);
+      border: 1px solid var(--vinous);
+      color: var(--white);
+    }
+  }
+  @media (max-width: 850px) {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 0.5rem;
+      justify-content: center;
     }
   }
 `;

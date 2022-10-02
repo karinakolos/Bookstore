@@ -4,6 +4,7 @@ export type FavoriteItem = {
   isbn13: string;
   image?: string;
   title?: string;
+  subtitle?: string;
   price: string;
 };
 interface FavoriteSliceState {

@@ -9,9 +9,8 @@ export const PostWrapper = styled.div`
   height: 100%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
-  padding: 0 1rem 1rem;
   :hover {
-    background: #f8e6e6;
+    background: var(--bg-card);
   }
 `;
 
@@ -30,7 +29,7 @@ export const PostName = styled.p`
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: #313037;
+  color: var(--main);
   text-transform: uppercase;
   margin: 1rem 0 1rem;
 `;
@@ -39,24 +38,25 @@ export const PostAuthor = styled.p`
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.2rem;
-  color: #a8a8a8;
+  color: var(--light);
 `;
 export const Price = styled.p`
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: #313037;
+  color: var(--main);
 `;
 export const WrapperInfo = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 0.7rem;
+  padding: 0.7rem 1rem 0.5rem;
 `;
-export const WrapperMain = styled.div``;
+export const WrapperMain = styled.div`
+  padding: 0.5rem 1rem 1rem;
+`;
 export const WrapperButton = styled.div`
   display: flex;
 `;
-
 export const ButtonBasket = styled.button`
   border: none;
   padding: 0 0.5rem;
@@ -67,11 +67,11 @@ export const ButtonBasket = styled.button`
     height: 1.45rem;
     transition: all 0.2s ease-in;
     &:hover {
-      fill: #781a2b;
+      fill: var(--vinous);
       transform: scale(1.15);
     }
     &:active {
-      fill: #781a2b;
+      fill: var(--vinous);
       transform: scale(1.15);
     }
   }

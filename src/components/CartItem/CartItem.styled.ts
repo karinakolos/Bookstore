@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 3rem auto 2rem;
@@ -15,58 +15,98 @@ export const WrapperCartItem = styled.div`
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const WrapperImageItem = styled.div`
-  width: 16rem;
-  height: 12rem;
+  flex-basis: 30%;
+  margin: auto;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
+  @media (max-width: 573px) {
+    flex-basis: 20%;
+  }
+  @media (max-width: 500px) {
+    flex-basis: 100%;
+    width: 12rem;
+    height: 12rem;
+  }
 `;
 
 export const WrapperDescItem = styled.div`
   margin: 0 2rem;
   flex-basis: 50%;
+  padding: 1rem 0;
+  @media (max-width: 573px) {
+    flex-basis: 40%;
+    margin: 0 0.5rem;
+  }
+  @media (max-width: 500px) {
+    flex-basis: 50%;
+  }
 `;
 
 export const Title = styled.div`
-  padding: 1rem 0;
+  padding: 0 0 1rem;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-
-  color: #313037;
+  color: var(--main);
+  @media (max-width: 573px) {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    padding: 0 0 0.5rem;
+  }
 `;
 export const Subtitle = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
-
-  color: #b9aca8;
+  color: var(--subtitle);
+  @media (max-width: 573px) {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
 `;
 export const Quantity = styled.div`
   padding: 2rem 0 0 2rem;
   display: flex;
   align-items: center;
+  @media (max-width: 500px) {
+    padding: 2rem 0 0;
+  }
 `;
 export const Value = styled.div`
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 0 0.5rem;
-
-  color: #313037;
+  color: var(--main);
+  @media (max-width: 573px) {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
 `;
 export const Price = styled.div`
+  flex-basis: 30%;
+  display: flex;
+  justify-content: center;
   font-weight: 700;
-  font-size: 2.5;
+  font-size: 1.3rem;
   line-height: 3.75rem;
-  margin: auto 3rem;
-  color: #313037;
+  margin: auto;
+  color: var(--main);
+  @media (max-width: 573px) {
+    flex-basis: 20%;
+    font-size: 1rem;
+    line-height: 2.1rem;
+  }
 `;
 export const ButtonAddItem = styled.button`
   border: none;
@@ -91,4 +131,7 @@ export const DeleteItem = styled.button`
   padding: 0 2rem;
   background-color: #0000;
   cursor: pointer;
+  @media (max-width: 500px) {
+    flex-basis: 15%;
+  }
 `;

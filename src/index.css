@@ -1,6 +1,15 @@
 :root {
   --bg-dark: #222124;
   --bg-light: #e6dacc;
+  --bg-card: #f8e6e6;
+  --bg-form: #ccc4bc;
+  --white: #fff;
+  --main: #313037;
+  --vinous: #781a2b;
+  --title: #23282b;
+  --subtitle: #b9aca8;
+  --light: #a8a8a8;
+  --border-input: #e7e7e7;
 }
 body {
   height: 100vh;
@@ -28,4 +37,9 @@ input {
 }
 #root {
   height: 100%;
+}
+@media (max-width: 1025px) {
+  html {
+    font-size: 14px;
+  }
 }

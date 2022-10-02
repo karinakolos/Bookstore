@@ -8,7 +8,13 @@ export const Wrapper = styled.div`
 export const BooksContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem; ;
+  grid-gap: 1rem;
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const NoFavorites = styled.div`

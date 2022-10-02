@@ -33,7 +33,7 @@ export const WrapperItem = styled.div`
   flex-basis: 40%;
   margin: auto 1rem;
   padding: 2rem;
-  border: 1px solid #23282b;
+  border: 1px solid var(--title);
 `;
 export const TitleForm = styled.div`
   font-size: 1.5rem;
@@ -42,7 +42,7 @@ export const TitleForm = styled.div`
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 1rem auto;
@@ -50,7 +50,7 @@ export const TitleForm = styled.div`
 `;
 export const Label = styled.p`
   font-size: 1.1rem;
-  color: #313037;
+  color: var(--main);
   line-height: 1.6rem;
 `;
 
@@ -62,17 +62,17 @@ export const Necessarily = styled.span`
 export const ItemTitle = styled.div`
   font-size: 1.5rem;
   padding: 0 0 1.5rem;
-  color: #23282b;
+  color: var(--title);
 `;
 export const ItemDescription = styled.div`
   font-size: 1.1rem;
-  color: #313037;
+  color: var(--main);
   line-height: 1.6rem;
   :after {
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 0.5rem auto;
@@ -80,7 +80,7 @@ export const ItemDescription = styled.div`
 `;
 export const Book = styled.div`
   font-size: 1.1rem;
-  color: #a8a8a8;
+  color: var(--light);
   padding-bottom: 0.5rem;
 `;
 export const Books = styled.div`
@@ -97,7 +97,7 @@ export const WrapperCol = styled.div`
 `;
 export const Item = styled.div`
   font-size: 1.1rem;
-  color: #313037;
+  color: var(--main);
   line-height: 1.6rem;
 `;
 export const Error = styled.div`
@@ -121,7 +121,7 @@ export const Alert = styled.div`
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 2rem auto 0;

@@ -16,6 +16,7 @@ import {
   Item,
   ItemChange,
   LogOut,
+  TitleSettingsFirst,
 } from "./SettingsPage.styled";
 
 const SettingsPage: React.FC = () => {
@@ -27,7 +28,7 @@ const SettingsPage: React.FC = () => {
     <>
       <Title title="settings" />
       <Wrapper>
-        <TitleSettings>Account</TitleSettings>
+        <TitleSettingsFirst>Account</TitleSettingsFirst>
         <WrapperCol>
           <Item>User name:</Item>
           <Item>{name}</Item>

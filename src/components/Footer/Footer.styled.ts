@@ -9,7 +9,7 @@ export const WrapperFooter = styled.div`
     content: "";
     display: block;
     height: 1px;
-    background: #23282b;
+    background: var(--title);
     opacity: 0.4;
     width: 100%;
     margin: 3rem auto 0;
@@ -23,6 +23,6 @@ export const Item = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #a8a8a8;
+  color: var(--light);
   padding: 1.5rem 0;
 `;

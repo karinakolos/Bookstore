@@ -35,11 +35,19 @@ const MainPage: React.FC = () => {
   };
 
   React.useEffect(() => {
-    if (!(currentPage == 1)) {
-      const queryString = qs.stringify({ page: currentPage });
+    if (searchValue == "") {
+      const queryString = qs.stringify({
+        page: currentPage,
+      });
+      navigate(`?${queryString}`);
+    } else {
+      const queryString = qs.stringify({
+        page: currentPage,
+        search: searchValue,
+      });
       navigate(`?${queryString}`);
     }
-  }, [currentPage]);
+  }, [currentPage, searchValue]);
 
   React.useEffect(() => {
     getBooks();

@@ -32,6 +32,7 @@ export const Button = styled.button`
   padding: 1rem;
   margin-top: 0.5rem;
   color: var(--white);
+  border-color: #0000;
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {

@@ -12,7 +12,7 @@ export const WrapperForm = styled.div`
     height: 4rem;
   }
   @media (max-width: 650px) {
-    margin: 2rem 1rem 2rem;
+    margin: 3rem 1rem 2rem;
   }
 `;
 
@@ -21,7 +21,7 @@ export const WrapperFormSubscribe = styled.div`
   padding: 3rem 2rem;
   background: var(--bg-form);
   @media (max-width: 650px) {
-    margin: 2rem 0.5rem 2rem;
+    margin: 3rem 0.5rem 2rem;
     padding: 1rem 1rem;
   }
 `;

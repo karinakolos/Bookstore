@@ -12,6 +12,11 @@ export const PostWrapper = styled.div`
   :hover {
     background: var(--bg-card);
   }
+  @media (max-width: 844px) {
+    :hover {
+      background: none;
+    }
+  }
 `;
 
 export const PostImage = styled.div`

@@ -44,6 +44,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   padding: 0.8rem;
   color: var(--white);
+  border-color: #0000;
   cursor: pointer;
   transition: all 0.3s ease-in;
   :hover {

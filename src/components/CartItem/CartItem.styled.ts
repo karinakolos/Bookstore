@@ -116,6 +116,7 @@ export const ButtonAddItem = styled.button`
   line-height: 1.5rem;
   padding: 0 0.5rem;
   background-color: #0000;
+  color: var(--main);
   cursor: pointer;
 `;
 export const ButtonDeleteItem = styled.button`
@@ -124,6 +125,7 @@ export const ButtonDeleteItem = styled.button`
   line-height: 1.5rem;
   padding: 0 0.5rem;
   background-color: #0000;
+  color: var(--main);
   cursor: pointer;
 `;
 export const DeleteItem = styled.button`
@@ -131,6 +133,7 @@ export const DeleteItem = styled.button`
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 0 2rem;
+  color: var(--main);
   background-color: #0000;
   cursor: pointer;
   @media (max-width: 500px) {

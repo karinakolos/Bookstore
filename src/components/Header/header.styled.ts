@@ -121,7 +121,7 @@ export const Count = styled.span`
   background-color: var(--vinous);
   color: var(--white);
   border-radius: 50%;
-  padding: 0 0.3rem;
+  padding: 0.05rem 0.35rem;
   position: absolute;
   right: -0.4rem;
   top: -0.4rem;

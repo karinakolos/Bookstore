@@ -4,9 +4,15 @@ export const Wrapper = styled.div`
   margin: 0 0 1rem;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 810px) {
+    flex-wrap: wrap;
+  }
 `;
 export const WrapperForm = styled.div`
+  display: flex;
+  flex-direction: column;
   flex-basis: 45%;
+  padding-right: 1rem;
   input {
     display: flex;
     width: 100%;
@@ -28,12 +34,18 @@ export const WrapperForm = styled.div`
     height: 2.5rem;
     font-size: 1rem;
   }
+  @media (max-width: 810px) {
+    flex-basis: 100%;
+  }
 `;
 export const WrapperItem = styled.div`
   flex-basis: 40%;
   margin: auto 1rem;
   padding: 2rem;
   border: 1px solid var(--title);
+  @media (max-width: 810px) {
+    flex-basis: 100%;
+  }
 `;
 export const TitleForm = styled.div`
   font-size: 1.5rem;
@@ -112,6 +124,9 @@ export const Cheque = styled.div`
   margin: 1rem auto;
   padding: 2rem;
   background: #fff;
+  @media (max-width: 650px) {
+    width: 80%;
+  }
 `;
 export const Alert = styled.div`
   font-size: 1rem;

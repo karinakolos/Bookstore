@@ -79,7 +79,16 @@ const PostCard: React.FC<PostCardpRpops> = ({
 
   return (
     <PostWrapper>
-      <StyledLink key={isbn13} to={`/book/${isbn13}`}>
+      <StyledLink
+        key={isbn13}
+        to={`/book/${isbn13}`}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
         <WrapperMain>
           <PostImage>
             <img
